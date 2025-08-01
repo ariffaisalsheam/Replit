@@ -58,7 +58,8 @@ export class MemStorage implements IStorage {
     const conversation: Conversation = { 
       ...insertConversation, 
       id,
-      createdAt: new Date()
+      createdAt: new Date(),
+      userId: insertConversation.userId || null
     };
     this.conversations.set(id, conversation);
     return conversation;
@@ -79,7 +80,8 @@ export class MemStorage implements IStorage {
     const message: Message = { 
       ...insertMessage, 
       id,
-      timestamp: new Date()
+      timestamp: new Date(),
+      conversationId: insertMessage.conversationId || null
     };
     this.messages.set(id, message);
     return message;

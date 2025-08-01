@@ -9,7 +9,7 @@ interface ChatContextType {
   currentConversation: Conversation | null;
   setCurrentConversation: (conversation: Conversation | null) => void;
   messages: Message[];
-  setMessages: (messages: Message[]) => void;
+  setMessages: (messages: Message[] | ((prev: Message[]) => Message[])) => void;
   isTyping: boolean;
   setIsTyping: (typing: boolean) => void;
 }
